@@ -6,6 +6,7 @@ A small little module for finding a date in π.
 
 from datetime import datetime, timezone, timedelta
 from collections import namedtuple
+import PiOneMillion
 
 __author__ = "Keely Hill"
 __copyright__ = "Copyright 2015 Keely Hill"
@@ -15,11 +16,14 @@ __license__ = "MIT"
 __email__ = "KeelyHill@gmx.com"
 __status__ = "Production/Development"  # like a crazy person
 
-pi = ''
-Found = namedtuple('Found', ['index', 'substring'])
+pi = PiOneMillion.pi
 
-with open('Pi-OneMillion.txt', 'r') as f:
-    pi = f.read()
+# Old pi importing
+# pi = ''
+# with open('Pi-OneMillion.txt', 'r') as f:
+#     pi = f.read()
+
+Found = namedtuple('Found', ['index', 'substring'])
 
 
 def find(needle):
