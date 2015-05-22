@@ -4,7 +4,7 @@ Copyright (c) 2015 Keely Hill
 A small little module for finding a date in π.
 """
 
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from collections import namedtuple
 
 __author__ = "Keely Hill"
@@ -86,3 +86,22 @@ def findTodayInPi():
     Searches for the current date UTC within pi.
     """
     return findDateInPi(datetime.now(timezone.utc))
+
+
+def searchTheNextDays(days, raw=False):
+    """
+    Returns an array of the next amount of days based on findDateInPi().
+
+    Each element in the array is a tuple containing the ISO 8601 date and the
+    named tuple from findDateInPi().
+
+    Raw will remove sentences and only return named tuple's.
+    """
+    date = datetime.now(timezone.utc)
+    results = []
+
+    for i in range(days):
+        date += timedelta(days=1)
+        results.append((date.strftime('%Y-%m-%d'), findDateInPi(date, raw)))
+
+    return results
