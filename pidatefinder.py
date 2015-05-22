@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 Copyright (c) 2015 Keely Hill
 
@@ -25,6 +23,16 @@ with open('Pi-OneMillion.txt', 'r') as f:
 
 
 def find(needle):
+    """
+    Searches the first million digits of pi for the string.
+
+    If it cannot find the raw needle first the decade is removed
+    followed by the entire year.
+
+    Returns a named tuple Found:
+        Found.index returns -1 if it is not found.
+        Found.substring always returns the last needle.
+    """
     location = pi.find(needle)
     if location is -1:
         needle = needle[:-4] + needle[-2:]  # remove century
@@ -36,6 +44,9 @@ def find(needle):
 
 
 def constructSentence(found, dateFormat):
+    """
+    Uses results of find() to create an English sentence.
+    """
     if found.index is -1:
         # return 'Today not found using ' + dateFormat + ' format.'
         return None
@@ -45,6 +56,14 @@ def constructSentence(found, dateFormat):
 
 
 def findDateInPi(date, raw=False):
+    """
+    Finds the current date within pi.
+
+    Looks with both American and European date formats.
+
+    Returns a dict with each format in sentence form unless raw=True where
+    the raw named tuple is returned in a dict instead.
+    """
     # American Date Format
     american = find(date.strftime('%-m%-d%Y'))
 
@@ -63,4 +82,7 @@ def findDateInPi(date, raw=False):
 
 
 def findTodayInPi():
+    """
+    Searches for the current date UTC within pi.
+    """
     return findDateInPi(datetime.now(timezone.utc))
