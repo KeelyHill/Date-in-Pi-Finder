@@ -1,7 +1,21 @@
 # -*- coding: utf-8 -*-
 
+"""
+Copyright (c) 2015 Keely Hill
+
+A small little module for finding a date in π.
+"""
+
 from datetime import datetime, timezone
 from collections import namedtuple
+
+__author__ = "Keely Hill"
+__copyright__ = "Copyright 2015 Keely Hill"
+__version__ = "0.1.0"
+
+__license__ = "MIT"
+__email__ = "KeelyHill@gmx.com"
+__status__ = "Production/Development"  # like a crazy person
 
 pi = ''
 Found = namedtuple('Found', ['index', 'substring'])
