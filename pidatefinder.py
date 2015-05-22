@@ -12,7 +12,7 @@ __author__ = "Keely Hill"
 __copyright__ = "Copyright 2015 Keely Hill"
 __version__ = "0.1.0"
 
-__license__ = "MIT"
+__license__ = "GNU"
 __email__ = "KeelyHill@gmx.com"
 __status__ = "Production/Development"  # like a crazy person
 
